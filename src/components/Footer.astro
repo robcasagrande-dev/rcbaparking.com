@@ -5,7 +5,10 @@
 <footer class="footer">
   <div class="container footer-grid">
     <div class="brand-col">
-      <h3>RCBA <span class="highlight">Parking</span></h3>
+      <div class="footer-logos">
+        <img src="/images/logo1.jpeg" alt="RCBA Parking Logo" class="footer-logo" />
+        <img src="/images/logo2.jpeg" alt="RCBA Parking 2 Logo" class="footer-logo" />
+      </div>
       <p class="text-secondary">Secure, 24/7 parking in the heart of Santa Marta. Two locations to serve you better.</p>
     </div>
     
@@ -61,14 +64,20 @@
     margin-bottom: 3rem;
   }
 
-  .highlight {
-    color: var(--primary-color);
+  .footer-logos {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
   }
 
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
+  .footer-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    background: white; /* Contrast for the dark footer */
+    padding: 0.2rem;
+    border-radius: 4px;
   }
 
   h4 {
