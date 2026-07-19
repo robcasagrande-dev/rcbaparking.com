@@ -1,54 +1,44 @@
 ---
-// Pricing.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="pricing" class="section pricing-section">
   <div class="container">
-    <div class="text-center mb-5">
-      <h2>Pricing Structure</h2>
-      <p class="text-secondary">Transparent, affordable rates for secure parking.</p>
+    <div class="text-center mb-5 animate-fade-in">
+      <h2>{t('pricing.title')}</h2>
+      <p class="text-secondary">{t('pricing.desc')}</p>
     </div>
 
-    <div class="pricing-grid">
-      <!-- Daytime -->
-      <div class="pricing-card glass-panel">
+    <div class="grid grid-2 pricing-grid">
+      <div class="card pricing-card glass-panel text-center">
         <div class="pricing-header">
-          <h3>Daytime Flat Rate</h3>
-          <div class="price">
-            <span class="currency">COP</span>
-            <span class="amount">20,000</span>
-          </div>
-          <p class="validity">Valid until 18:00</p>
+          <h3>{t('pricing.day.title')}</h3>
+          <div class="price">20,000 <span class="currency">COP</span></div>
+          <p class="validity">{t('pricing.day.valid')}</p>
         </div>
-        <div class="pricing-body">
-          <ul>
-            <li>✓ Ideal for daytime catamaran excursions</li>
-            <li>✓ Perfect for sailing tours</li>
-            <li>✓ Secure physical monitoring</li>
-            <li>✓ Convenient marina access</li>
-          </ul>
-        </div>
+        <ul class="pricing-features">
+          <li>✔️ {t('pricing.day.f1')}</li>
+          <li>✔️ {t('pricing.day.f2')}</li>
+          <li>✔️ {t('pricing.day.f3')}</li>
+          <li>✔️ {t('pricing.day.f4')}</li>
+        </ul>
       </div>
 
-      <!-- Evening -->
-      <div class="pricing-card glass-panel featured">
+      <div class="card pricing-card premium glass-panel text-center">
         <div class="pricing-header">
-          <h3>Evening Hourly Rate</h3>
-          <div class="price">
-            <span class="currency">COP</span>
-            <span class="amount">3,000</span>
-            <span class="period">/hr</span>
-          </div>
-          <p class="validity">Applies after 18:00</p>
+          <h3>{t('pricing.night.title')}</h3>
+          <div class="price">4,000 <span class="currency">COP{t('pricing.night.period')}</span></div>
+          <p class="validity">{t('pricing.night.valid')}</p>
         </div>
-        <div class="pricing-body">
-          <ul>
-            <li>✓ Enjoy Santa Marta’s nightlife without a curfew</li>
-            <li>✓ 00:00-00:00 continuous operating hours</li>
-            <li>✓ Safe access to your vehicle at any time of night</li>
-            <li>✓ Premium vehicle accommodation</li>
-          </ul>
-        </div>
+        <ul class="pricing-features">
+          <li>✔️ {t('pricing.night.f1')}</li>
+          <li>✔️ {t('pricing.night.f2')}</li>
+          <li>✔️ {t('pricing.night.f3')}</li>
+          <li>✔️ {t('pricing.night.f4')}</li>
+        </ul>
       </div>
     </div>
   </div>

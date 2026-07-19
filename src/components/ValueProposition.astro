@@ -1,42 +1,41 @@
 ---
-// ValueProposition.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<section id="about" class="section vp-section">
+<section id="value-prop" class="section vp-section">
   <div class="container">
     <div class="vp-header text-center animate-fade-in">
-      <h2>Our Network</h2>
-      <p class="vp-intro">
-        Navigating the vibrant, historic streets of Santa Marta should be an exhilarating experience, entirely devoid of logistical stress. Whether you are embarking on a full-day sailing excursion from Marina Santa Marta, exploring the colonial architecture and narrow avenues of the Centro Histórico, or enjoying the city's renowned culinary and nightlife scene, the RCBA Parking Network provides the unparalleled peace of mind you deserve.
-      </p>
-      <p class="vp-intro mt-4">
-        With two strategically located, highly secure facilities operating continuously 24 hours a day, 7 days a week, your vehicle remains protected while you experience the best of the Caribbean coast. We are equipped to accommodate all vehicle types—from compact economy rentals navigating tight streets to premium SUVs—ensuring a seamless, secure start and end to your journey in Magdalena.
-      </p>
+      <h2>{t('vp.title')}</h2>
+      <p class="vp-intro">{t('vp.p1')}</p>
+      <p class="vp-intro mt-4">{t('vp.p2')}</p>
     </div>
 
     <div class="vp-grid">
       <div class="vp-card glass-panel">
         <div class="icon">🛡️</div>
-        <h3>24/7 Security & Monitoring</h3>
-        <p>Physical monitoring designed specifically to keep your vehicles safe from urban hazards.</p>
+        <h3>{t('vp.f1.title')}</h3>
+        <p>{t('vp.f1.desc')}</p>
       </div>
-      
+
       <div class="vp-card glass-panel">
         <div class="icon">🕒</div>
-        <h3>Open 24 Hours a Day</h3>
-        <p>00:00-00:00 operating hours guarantee access to your vehicle at any time of night.</p>
+        <h3>{t('vp.f2.title')}</h3>
+        <p>{t('vp.f2.desc')}</p>
       </div>
 
       <div class="vp-card glass-panel">
         <div class="icon">📍</div>
-        <h3>Central Locations</h3>
-        <p>Less than a 5-minute walk (200 meters) from Marina Santa Marta and the historic center.</p>
+        <h3>{t('vp.f3.title')}</h3>
+        <p>{t('vp.f3.desc')}</p>
       </div>
 
       <div class="vp-card glass-panel">
         <div class="icon">🚙</div>
-        <h3>Spacious Parking Bays</h3>
-        <p>Equipped to accommodate all vehicle types, from compact economy rentals to premium SUVs.</p>
+        <h3>{t('vp.f4.title')}</h3>
+        <p>{t('vp.f4.desc')}</p>
       </div>
     </div>
   </div>

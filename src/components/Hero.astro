@@ -1,17 +1,19 @@
 ---
-// Hero.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<section class="hero">
+<section id="about" class="hero section">
   <div class="hero-overlay"></div>
   <div class="container hero-content animate-fade-in">
-    <h1>Secure, 24/7 Parking in the <span class="highlight">Heart of Santa Marta</span></h1>
+    <h1>{t('hero.title_start')} <span class="highlight">{t('hero.title_highlight')}</span></h1>
     <p class="sub-headline delay-1">
-      Two strategically located facilities offering continuous access, 24-hour monitoring, and seamless routing. 
-      Just 200 meters from Marina Santa Marta and steps from the Centro Histórico.
+      {t('hero.desc')}
     </p>
     <div class="hero-actions delay-2">
-      <a href="#locations" class="btn btn-primary btn-large">Find a Parking Spot</a>
+      <a href="#locations" class="btn btn-primary btn-large">{t('hero.cta')}</a>
     </div>
   </div>
 </section>

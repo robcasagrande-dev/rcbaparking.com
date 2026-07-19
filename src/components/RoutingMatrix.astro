@@ -1,48 +1,52 @@
 ---
-// RoutingMatrix.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
 const loc1Lat = "11.2423592";
 const loc1Lon = "-74.2143214";
 
 const loc2Lat = "11.2426731";
 const loc2Lon = "-74.214182";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="locations" class="section matrix-section">
   <div class="container">
-    <div class="matrix-header text-center mb-5">
-      <h2>Our Locations</h2>
-      <p class="text-secondary">Select the most convenient parking lot for your destination.</p>
+    <div class="text-center mb-5 animate-fade-in">
+      <h2>{t('routing.title')}</h2>
+      <p class="text-secondary">{t('routing.desc')}</p>
     </div>
 
     <div class="matrix-grid">
       <!-- Location 1 -->
       <div class="matrix-card glass-panel">
         <div class="card-image">
-          <img src="/images/location1.png" alt="RCBA Parking 1 (Centro Histórico)" />
+          <img src="/images/location1.png" alt="RCBA Parking 1" loading="lazy" />
         </div>
         <div class="card-content">
-          <h3>RCBA Parking 1</h3>
-          <p class="address">Cra. 2 #19-60, Centro Histórico</p>
+          <h3>{t('routing.loc1.title')}</h3>
+          <p class="address">{t('routing.loc1.addr')}</p>
           
           <ul class="distances">
-            <li><span>🚶 Marina Santa Marta:</span> <strong>200m (3 min)</strong></li>
-            <li><span>🏛️ Parque de los Novios:</span> <strong>400m (5 min)</strong></li>
+            <li><span>📍 {t('routing.loc1.d1')}</span> <strong>200m (3 min)</strong></li>
+            <li><span>🏛️ {t('routing.loc1.d2')}</span> <strong>400m (5 min)</strong></li>
           </ul>
 
           <div class="map-container">
-            <!-- Google Maps Embed for Cra 2 #19-60 -->
+            <!-- Google Maps Embed -->
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.0645069796033!2d-74.2143214!3d11.2423592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef4f5a3a4bbbbbb%3A0xbbbbbbbbbbbbbbbb!2sCra.%202%20%2319-60%2C%20Santa%20Marta%2C%20Magdalena!5e0!3m2!1sen!2sco!4v1680000000000!5m2!1sen!2sco" 
               width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
-
+          
           <div class="routing-actions">
-            <a href={`waze://?ll=${loc1Lat},${loc1Lon}&navigate=yes`} class="btn btn-waze btn-large">
-              Drive with Waze
+            <a href={`https://waze.com/ul?ll=${loc1Lat},${loc1Lon}&navigate=yes`} target="_blank" class="btn btn-secondary waze-btn">
+              {t('routing.btn.waze')}
             </a>
-            <a href={`https://www.google.com/maps/dir/?api=1&destination=${loc1Lat},${loc1Lon}`} target="_blank" rel="noopener noreferrer" class="btn btn-maps btn-large">
-              Drive with Google Maps
+            <a href={`https://www.google.com/maps/dir/?api=1&destination=${loc1Lat},${loc1Lon}`} target="_blank" class="btn btn-primary maps-btn">
+              {t('routing.btn.maps')}
             </a>
           </div>
         </div>
@@ -51,15 +55,15 @@ const loc2Lon = "-74.214182";
       <!-- Location 2 -->
       <div class="matrix-card glass-panel">
         <div class="card-image">
-          <img src="/images/location2.png" alt="RCBA Parking 2" />
+          <img src="/images/location2.png" alt="RCBA Parking 2" loading="lazy" />
         </div>
         <div class="card-content">
-          <h3>RCBA Parking 2</h3>
-          <p class="address">Cra. 2 #19-36, Centro Histórico</p>
+          <h3>{t('routing.loc2.title')}</h3>
+          <p class="address">{t('routing.loc2.addr')}</p>
           
           <ul class="distances">
-            <li><span>🏢 Centro Comercial:</span> <strong>500m (6 min)</strong></li>
-            <li><span>🏖️ Bahia Santa Marta:</span> <strong>600m (8 min)</strong></li>
+            <li><span>🏢 {t('routing.loc2.d1')}</span> <strong>500m (6 min)</strong></li>
+            <li><span>🏖️ {t('routing.loc2.d2')}</span> <strong>600m (8 min)</strong></li>
           </ul>
 
           <div class="map-container">
@@ -71,11 +75,11 @@ const loc2Lon = "-74.214182";
           </div>
 
           <div class="routing-actions">
-            <a href={`waze://?ll=${loc2Lat},${loc2Lon}&navigate=yes`} class="btn btn-waze btn-large">
-              Drive with Waze
+            <a href={`https://waze.com/ul?ll=${loc2Lat},${loc2Lon}&navigate=yes`} target="_blank" class="btn btn-secondary waze-btn">
+              {t('routing.btn.waze')}
             </a>
-            <a href={`https://www.google.com/maps/dir/?api=1&destination=${loc2Lat},${loc2Lon}`} target="_blank" rel="noopener noreferrer" class="btn btn-maps btn-large">
-              Drive with Google Maps
+            <a href={`https://www.google.com/maps/dir/?api=1&destination=${loc2Lat},${loc2Lon}`} target="_blank" class="btn btn-primary maps-btn">
+              {t('routing.btn.maps')}
             </a>
           </div>
         </div>

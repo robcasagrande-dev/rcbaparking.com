@@ -1,25 +1,32 @@
 ---
-// Header.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import LanguagePicker from './LanguagePicker.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header class="header">
   <div class="container header-content">
     <div class="logo">
-      <a href="/">
+      <a href={`/${lang === 'es' ? '' : lang}`}>
         <img src="/images/logo1.jpeg" alt="RCBA Parking Logo" class="header-logo" />
       </a>
     </div>
     
     <nav class="desktop-nav">
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#locations">Locations</a></li>
-        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#about">{t('nav.about')}</a></li>
+        <li><a href="#locations">{t('nav.locations')}</a></li>
+        <li><a href="#pricing">{t('nav.pricing')}</a></li>
+        <li>
+          <LanguagePicker />
+        </li>
       </ul>
     </nav>
     
     <div class="cta-container">
-      <button class="btn btn-primary" id="navigate-btn">Navigate Now</button>
+      <button class="btn btn-primary" id="navigate-btn">{t('nav.navigate')}</button>
     </div>
   </div>
 </header>
@@ -28,12 +35,12 @@
 <div id="nav-modal" class="modal">
   <div class="modal-content glass-panel">
     <span class="close-modal">&times;</span>
-    <h3>Select Destination</h3>
-    <p>Which RCBA Parking location are you heading to?</p>
+    <h3>{t('modal.title')}</h3>
+    <p>{t('modal.desc')}</p>
     
     <div class="modal-options">
-      <a href="#locations" class="btn btn-primary modal-btn" id="go-loc1">RCBA Parking 1 (Centro)</a>
-      <a href="#locations" class="btn btn-primary modal-btn" id="go-loc2">RCBA Parking 2</a>
+      <a href="#locations" class="btn btn-primary modal-btn" id="go-loc1">{t('modal.loc1')}</a>
+      <a href="#locations" class="btn btn-primary modal-btn" id="go-loc2">{t('modal.loc2')}</a>
     </div>
   </div>
 </div>

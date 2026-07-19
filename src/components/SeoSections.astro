@@ -1,12 +1,15 @@
 ---
-// SeoSections.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="section seo-section">
   <div class="container">
-    <div class="text-center mb-5">
-      <h2>Common Parking Needs in Santa Marta</h2>
-      <p class="text-secondary">Tailored solutions for every type of visitor.</p>
+    <div class="text-center mb-5 animate-fade-in">
+      <h2>{t('seo.title')}</h2>
+      <p class="text-secondary">{t('seo.desc')}</p>
     </div>
 
     <div class="accordion-container">
@@ -14,12 +17,12 @@
       <div class="accordion-item glass-panel">
         <button class="accordion-header" aria-expanded="false">
           <span class="icon">⛵</span>
-          <span class="title">Parking near Marina Santa Marta</span>
+          <span class="title">{t('seo.s1.title')}</span>
           <span class="toggle-icon">+</span>
         </button>
         <div class="accordion-content">
           <p>
-            <strong>Marina Visitors & Day Trippers:</strong> Less than a 5-minute walk (200 meters) from Marina Santa Marta. Secure your vehicle for the entire day with our 20,000 COP flat rate. Perfect for catamaran tours, sailing trips, and day-long maritime excursions.
+            <strong>{t('seo.s1.strong')}</strong> {t('seo.s1.desc')}
           </p>
         </div>
       </div>
@@ -28,12 +31,12 @@
       <div class="accordion-item glass-panel">
         <button class="accordion-header" aria-expanded="false">
           <span class="icon">🚙</span>
-          <span class="title">Secure Rental Car Parking Santa Marta</span>
+          <span class="title">{t('seo.s2.title')}</span>
           <span class="toggle-icon">+</span>
         </button>
         <div class="accordion-content">
           <p>
-            <strong>Secure Rental Car Parking:</strong> Protect your liability. Our wide bays and 24/7 physical monitoring are designed specifically to keep your rental vehicles safe from urban hazards. Enjoy peace of mind knowing your rental is fully protected overnight and during your daily adventures.
+            <strong>{t('seo.s2.strong')}</strong> {t('seo.s2.desc')}
           </p>
         </div>
       </div>
@@ -42,12 +45,12 @@
       <div class="accordion-item glass-panel">
         <button class="accordion-header" aria-expanded="false">
           <span class="icon">🌙</span>
-          <span class="title">Overnight Parking Centro Histórico</span>
+          <span class="title">{t('seo.s3.title')}</span>
           <span class="toggle-icon">+</span>
         </button>
         <div class="accordion-content">
           <p>
-            <strong>Overnight Parking Centro Histórico:</strong> Enjoy Santa Marta’s nightlife without a curfew. Unlike competing lots that close at 18:00, our 00:00-00:00 operating hours guarantee access to your vehicle at any time of night. Ideal for dinner, clubbing, or late-night strolls in the historic center.
+            <strong>{t('seo.s3.strong')}</strong> {t('seo.s3.desc')}
           </p>
         </div>
       </div>

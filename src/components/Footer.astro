@@ -1,5 +1,8 @@
 ---
-// Footer.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer class="footer">
@@ -9,37 +12,31 @@
         <img src="/images/logo1.jpeg" alt="RCBA Parking Logo" class="footer-logo" />
         <img src="/images/logo2.jpeg" alt="RCBA Parking 2 Logo" class="footer-logo" />
       </div>
-      <p class="text-secondary">Secure, 24/7 parking in the heart of Santa Marta. Two locations to serve you better.</p>
+      <p class="text-secondary">{t('footer.desc')}</p>
     </div>
     
     <div class="links-col">
-      <h4>Connect With Us</h4>
-      <ul class="social-links">
-        <li>
-          <strong>Location 1:</strong>
-          <a href="https://facebook.com/rcbaparking" target="_blank" rel="noopener noreferrer">Facebook</a> | 
-          <a href="https://instagram.com/rcbaparking" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </li>
-        <li>
-          <strong>Location 2:</strong>
-          <a href="https://facebook.com/profile.php?id=61557544546633" target="_blank" rel="noopener noreferrer">Facebook</a> | 
-          <a href="https://instagram.com/rcbaparking2" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </li>
-      </ul>
+      <h4>{t('footer.connect')}</h4>
+      <p><strong>{t('footer.loc1')}</strong> Cra. 2 #19-60</p>
+      <p><strong>{t('footer.loc2')}</strong> Cra. 2 #19-36</p>
+      <div class="social-links">
+        <a href="https://instagram.com/rcbaparking" target="_blank" aria-label="Instagram Location 1">IG 1</a>
+        <a href="https://instagram.com/rcbaparking2" target="_blank" aria-label="Instagram Location 2">IG 2</a>
+      </div>
     </div>
     
-    <div class="legal-col">
-      <h4>Legal</h4>
-      <ul class="legal-links">
-        <li><a href="#terms">Terms of Service</a></li>
-        <li><a href="#privacy">Privacy Policy</a></li>
-        <li><a href="#liability">Liability Disclaimer</a></li>
+    <div class="links-col">
+      <h4>{t('footer.legal')}</h4>
+      <ul>
+        <li><a href="#">{t('footer.terms')}</a></li>
+        <li><a href="#">{t('footer.privacy')}</a></li>
+        <li><a href="#">{t('footer.liability')}</a></li>
       </ul>
     </div>
   </div>
   
-  <div class="footer-bottom text-center">
-    <p class="text-secondary">&copy; {new Date().getFullYear()} RCBA Parking. All rights reserved.</p>
+  <div class="container footer-bottom">
+    <p class="text-secondary">© {new Date().getFullYear()} RCBA Parking. {t('footer.rights')}</p>
   </div>
 
   <!-- WhatsApp Floating Widget -->

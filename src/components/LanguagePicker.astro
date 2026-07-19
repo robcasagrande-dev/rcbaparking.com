@@ -1,0 +1,50 @@
+---
+import { getLangFromUrl, getRouteFromUrl } from '../i18n/utils';
+import { ui } from '../i18n/ui';
+
+const currentLang = getLangFromUrl(Astro.url);
+const route = getRouteFromUrl(Astro.url);
+---
+
+<div class="lang-picker">
+  {Object.entries(ui).map(([lang, _], index) => (
+    <>
+      <a 
+        href={lang === 'es' ? route : `/${lang}${route}`} 
+        class={lang === currentLang ? 'active' : ''}
+      >
+        {lang.toUpperCase()}
+      </a>
+      {index < Object.keys(ui).length - 1 && <span class="separator">|</span>}
+    </>
+  ))}
+</div>
+
+<style>
+  .lang-picker {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .lang-picker a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .lang-picker a:hover {
+    color: var(--primary-color);
+  }
+
+  .lang-picker a.active {
+    color: var(--primary-color);
+  }
+
+  .separator {
+    color: var(--surface-color);
+    opacity: 0.5;
+  }
+</style>

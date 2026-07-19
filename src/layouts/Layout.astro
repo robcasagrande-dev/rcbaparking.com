@@ -1,4 +1,5 @@
 ---
+import { getLangFromUrl } from '../i18n/utils';
 import '../styles/global.css';
 
 interface Props {
@@ -88,13 +89,14 @@ const schemaLocation2 = {
     "https://instagram.com/rcbaparking2"
   ]
 };
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     

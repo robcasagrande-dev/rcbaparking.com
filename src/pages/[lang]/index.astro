@@ -1,0 +1,34 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import ValueProposition from '../../components/ValueProposition.astro';
+import Gallery from '../../components/Gallery.astro';
+import RoutingMatrix from '../../components/RoutingMatrix.astro';
+import Pricing from '../../components/Pricing.astro';
+import SeoSections from '../../components/SeoSections.astro';
+import ReviewFunnel from '../../components/ReviewFunnel.astro';
+import Footer from '../../components/Footer.astro';
+import { ui } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  const languages = Object.keys(ui).filter(lang => lang !== 'es');
+  return languages.map(lang => ({
+    params: { lang },
+  }));
+}
+---
+
+<Layout title="RCBA Parking Santa Marta | Secure 24/7 Lots">
+  <Header />
+  <main>
+    <Hero />
+    <ValueProposition />
+    <Gallery />
+    <RoutingMatrix />
+    <Pricing />
+    <SeoSections />
+    <ReviewFunnel />
+  </main>
+  <Footer />
+</Layout>

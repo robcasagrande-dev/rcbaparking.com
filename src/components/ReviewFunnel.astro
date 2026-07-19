@@ -1,50 +1,56 @@
 ---
-// ReviewFunnel.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<section class="section review-section">
-  <div class="container text-center">
-    <div class="review-box glass-panel">
-      <h2>How was your parking experience?</h2>
-      <p class="text-secondary mb-4">We strive for 5-star service. Let us know how we did!</p>
-      
-      <div class="stars-container" id="stars-container">
-        <button class="star-btn" data-rating="1">★</button>
-        <button class="star-btn" data-rating="2">★</button>
-        <button class="star-btn" data-rating="3">★</button>
-        <button class="star-btn" data-rating="4">★</button>
-        <button class="star-btn" data-rating="5">★</button>
+<section class="section funnel-section text-center">
+  <div class="container funnel-container glass-panel animate-fade-in">
+    <h2>{t('review.title')}</h2>
+    <p class="text-secondary mb-4">{t('review.desc')}</p>
+    
+    <!-- Step 1: Sentiment Selection -->
+    <div id="sentiment-step" class="funnel-step active">
+      <div class="emoji-picker">
+        <button class="emoji-btn" data-sentiment="positive" aria-label="Positive Experience">😁</button>
+        <button class="emoji-btn" data-sentiment="neutral" aria-label="Neutral Experience">😐</button>
+        <button class="emoji-btn" data-sentiment="negative" aria-label="Negative Experience">😞</button>
       </div>
+    </div>
 
-      <div id="feedback-msg" class="feedback-msg hidden">
-        <!-- Message injected via JS -->
-      </div>
+    <!-- Step 2: Positive Routing -->
+    <div id="positive-step" class="funnel-step hidden">
+      <h3 class="success-text">{t('review.pos.msg')}</h3>
+      <a href="https://g.page/r/your-google-review-link" target="_blank" class="btn btn-primary btn-large mt-3">
+        ⭐ {t('review.pos.btn')}
+      </a>
+    </div>
+
+    <!-- Step 2: Negative/Neutral Routing -->
+    <div id="negative-step" class="funnel-step hidden">
+      <h3 class="warning-text">{t('review.neg.msg')}</h3>
+      <a href={`https://wa.me/573010000000?text=${encodeURIComponent(t('review.whatsapp.text'))}`} target="_blank" class="btn btn-whatsapp btn-large mt-3">
+        💬 {t('review.neg.btn')}
+      </a>
     </div>
   </div>
 </section>
 
 <style>
-  .review-section {
-    background-color: var(--bg-color);
+  .funnel-section {
+    padding: 3rem 0;
   }
-
-  .text-center { text-align: center; }
-  .mb-4 { margin-bottom: 2rem; }
-  .text-secondary { color: var(--text-secondary); }
-
-  .review-box {
+  .funnel-container {
     max-width: 600px;
     margin: 0 auto;
     padding: 3rem 2rem;
   }
-
-  h2 {
-    font-size: 2rem;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
+  .funnel-step {
+    transition: opacity 0.3s ease;
   }
-
-  .stars-container {
+  .hidden { display: none; }
+  .emoji-picker {
     display: flex;
     justify-content: center;
     gap: 0.5rem;

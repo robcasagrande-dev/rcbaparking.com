@@ -1,14 +1,18 @@
 ---
-// Gallery.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
 // There are 11 images named rcba-parking-santa-marta-1.jpeg to rcba-parking-santa-marta-11.jpeg
 const images = Array.from({ length: 11 }, (_, i) => `/images/gallery/rcba-parking-santa-marta-${i + 1}.jpeg`);
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="gallery" class="section gallery-section">
   <div class="container">
     <div class="text-center mb-5">
-      <h2>Facility Gallery</h2>
-      <p class="text-secondary">Take a look inside our secure parking facilities.</p>
+      <h2>{t('gallery.title')}</h2>
+      <p class="text-secondary">{t('gallery.desc')}</p>
     </div>
 
     <div class="gallery-grid">
