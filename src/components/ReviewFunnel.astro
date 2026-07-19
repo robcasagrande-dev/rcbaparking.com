@@ -1,0 +1,161 @@
+---
+// ReviewFunnel.astro
+---
+
+<section class="section review-section">
+  <div class="container text-center">
+    <div class="review-box glass-panel">
+      <h2>How was your parking experience?</h2>
+      <p class="text-secondary mb-4">We strive for 5-star service. Let us know how we did!</p>
+      
+      <div class="stars-container" id="stars-container">
+        <button class="star-btn" data-rating="1">★</button>
+        <button class="star-btn" data-rating="2">★</button>
+        <button class="star-btn" data-rating="3">★</button>
+        <button class="star-btn" data-rating="4">★</button>
+        <button class="star-btn" data-rating="5">★</button>
+      </div>
+
+      <div id="feedback-msg" class="feedback-msg hidden">
+        <!-- Message injected via JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .review-section {
+    background-color: var(--bg-color);
+  }
+
+  .text-center { text-align: center; }
+  .mb-4 { margin-bottom: 2rem; }
+  .text-secondary { color: var(--text-secondary); }
+
+  .review-box {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .stars-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    direction: ltr;
+  }
+
+  .star-btn {
+    background: none;
+    border: none;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .star-btn:hover,
+  .star-btn.active,
+  .star-btn:hover ~ .star-btn {
+    /* Wait, for ltr hover to work like fill-up, it needs a different approach. We'll use JS for it. */
+  }
+
+  .star-btn.active {
+    color: var(--primary-color);
+  }
+  .star-btn.hovered {
+    color: var(--primary-dark);
+  }
+
+  .feedback-msg {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    background: rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .feedback-msg.hidden {
+    display: none;
+  }
+
+  .feedback-msg p {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const stars = document.querySelectorAll('.star-btn');
+    const feedbackMsg = document.getElementById('feedback-msg');
+    const WHATSAPP_NUMBER = "5754220888";
+    
+    // Placeholder Google Review Link (Update this with actual Place ID link later)
+    const GOOGLE_REVIEW_LINK = "https://search.google.com/local/writereview?placeid=ChIJbbbbbbbbbbbbbbbbbbbbbb";
+
+    let currentRating = 0;
+
+    stars.forEach((star, index) => {
+      // Hover effect
+      star.addEventListener('mouseenter', () => {
+        stars.forEach((s, i) => {
+          if (i <= index) {
+            s.classList.add('hovered');
+          } else {
+            s.classList.remove('hovered');
+          }
+        });
+      });
+
+      // Mouse leave
+      star.addEventListener('mouseleave', () => {
+        stars.forEach(s => s.classList.remove('hovered'));
+      });
+
+      // Click event
+      star.addEventListener('click', () => {
+        currentRating = parseInt(star.getAttribute('data-rating') || '0');
+        
+        // Set active states
+        stars.forEach((s, i) => {
+          if (i < currentRating) {
+            s.classList.add('active');
+          } else {
+            s.classList.remove('active');
+          }
+        });
+
+        // Interstitial logic
+        if (feedbackMsg) {
+          feedbackMsg.classList.remove('hidden');
+          
+          if (currentRating >= 4) {
+            feedbackMsg.innerHTML = `
+              <p>We're thrilled you had a great experience!</p>
+              <a href="${GOOGLE_REVIEW_LINK}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Leave a Review on Google
+              </a>
+            `;
+            // Optional: Auto redirect after short delay
+            // setTimeout(() => window.open(GOOGLE_REVIEW_LINK, '_blank'), 1500);
+          } else {
+            const message = encodeURIComponent("Hi RCBA Parking, I had an issue during my recent visit and would like to provide some feedback.");
+            feedbackMsg.innerHTML = `
+              <p>We're sorry we didn't meet your expectations. We'd love to make it right.</p>
+              <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${message}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background-color: #25D366; color: white; box-shadow: none;">
+                Chat with Customer Service
+              </a>
+            `;
+          }
+        }
+      });
+    });
+  });
+</script>

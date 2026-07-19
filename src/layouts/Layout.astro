@@ -1,23 +1,117 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Secure, 24/7 Parking in the Heart of Santa Marta. Two strategically located facilities offering continuous access and 24-hour monitoring." } = Astro.props;
+
+// JSON-LD Schema
+const schemaLocation1 = {
+  "@context": "https://schema.org",
+  "@type": "ParkingFacility",
+  "name": "RCBA Parking",
+  "image": "https://www.rcbaparking.com/images/hero.png",
+  "@id": "https://www.rcbaparking.com",
+  "url": "https://www.rcbaparking.com",
+  "telephone": "+5754220888",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Cra. 2 #19-60",
+    "addressLocality": "Santa Marta",
+    "addressRegion": "Magdalena",
+    "addressCountry": "CO"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 11.2423592,
+    "longitude": -74.2143214
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "sameAs": [
+    "https://facebook.com/rcbaparking",
+    "https://instagram.com/rcbaparking"
+  ]
+};
+
+const schemaLocation2 = {
+  "@context": "https://schema.org",
+  "@type": "ParkingFacility",
+  "name": "RCBA Parking 2",
+  "image": "https://www.rcbaparking.com/images/location2.png",
+  "@id": "https://www.rcbaparking.com#location2",
+  "url": "https://www.rcbaparking.com",
+  "telephone": "+5754220888",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Cra. 2 #19-36",
+    "addressLocality": "Santa Marta",
+    "addressRegion": "Magdalena",
+    "addressCountry": "CO"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 11.2426731,
+    "longitude": -74.214182
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "sameAs": [
+    "https://facebook.com/profile.php?id=61557544546633",
+    "https://instagram.com/rcbaparking2"
+  ]
+};
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.rcbaparking.com" />
+    <meta property="og:image" content="https://www.rcbaparking.com/images/hero.png" />
+    
+    <script type="application/ld+json" set:html={JSON.stringify(schemaLocation1)} />
+    <script type="application/ld+json" set:html={JSON.stringify(schemaLocation2)} />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

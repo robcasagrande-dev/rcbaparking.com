@@ -1,0 +1,185 @@
+---
+// Header.astro
+---
+
+<header class="header">
+  <div class="container header-content">
+    <div class="logo">
+      <a href="/">
+        <h2>RCBA <span class="highlight">Parking</span></h2>
+      </a>
+    </div>
+    
+    <nav class="desktop-nav">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+    </nav>
+    
+    <div class="cta-container">
+      <button class="btn btn-primary" id="navigate-btn">Navigate Now</button>
+    </div>
+  </div>
+</header>
+
+<!-- Modal for Navigation Selection -->
+<div id="nav-modal" class="modal">
+  <div class="modal-content glass-panel">
+    <span class="close-modal">&times;</span>
+    <h3>Select Destination</h3>
+    <p>Which RCBA Parking location are you heading to?</p>
+    
+    <div class="modal-options">
+      <a href="#locations" class="btn btn-primary modal-btn" id="go-loc1">RCBA Parking 1 (Centro)</a>
+      <a href="#locations" class="btn btn-primary modal-btn" id="go-loc2">RCBA Parking 2</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem 0;
+    transition: var(--transition);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .logo .highlight {
+    color: var(--primary-color);
+  }
+
+  .desktop-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  .desktop-nav a {
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: var(--transition);
+  }
+
+  .desktop-nav a:hover {
+    color: var(--primary-color);
+  }
+
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .modal-content {
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+  }
+
+  .modal-content h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+  }
+
+  .modal-content p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: var(--transition);
+  }
+
+  .close-modal:hover {
+    color: var(--primary-color);
+  }
+
+  .modal-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .modal-btn {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('nav-modal');
+    const btn = document.getElementById('navigate-btn');
+    const span = document.querySelector('.close-modal');
+    const locBtns = document.querySelectorAll('.modal-btn');
+
+    if (btn && modal && span) {
+      btn.onclick = () => {
+        modal.classList.add('show');
+      }
+
+      span.onclick = () => {
+        modal.classList.remove('show');
+      }
+
+      window.onclick = (event) => {
+        if (event.target === modal) {
+          modal.classList.remove('show');
+        }
+      }
+
+      locBtns.forEach(b => {
+        b.addEventListener('click', () => {
+          modal.classList.remove('show');
+        });
+      });
+    }
+  });
+</script>

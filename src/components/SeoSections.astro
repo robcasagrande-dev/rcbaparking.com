@@ -1,0 +1,170 @@
+---
+// SeoSections.astro
+---
+
+<section class="section seo-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2>Common Parking Needs in Santa Marta</h2>
+      <p class="text-secondary">Tailored solutions for every type of visitor.</p>
+    </div>
+
+    <div class="accordion-container">
+      <!-- Item 1 -->
+      <div class="accordion-item glass-panel">
+        <button class="accordion-header" aria-expanded="false">
+          <span class="icon">⛵</span>
+          <span class="title">Parking near Marina Santa Marta</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <p>
+            <strong>Marina Visitors & Day Trippers:</strong> Less than a 5-minute walk (200 meters) from Marina Santa Marta. Secure your vehicle for the entire day with our 20,000 COP flat rate. Perfect for catamaran tours, sailing trips, and day-long maritime excursions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="accordion-item glass-panel">
+        <button class="accordion-header" aria-expanded="false">
+          <span class="icon">🚙</span>
+          <span class="title">Secure Rental Car Parking Santa Marta</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <p>
+            <strong>Secure Rental Car Parking:</strong> Protect your liability. Our wide bays and 24/7 physical monitoring are designed specifically to keep your rental vehicles safe from urban hazards. Enjoy peace of mind knowing your rental is fully protected overnight and during your daily adventures.
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="accordion-item glass-panel">
+        <button class="accordion-header" aria-expanded="false">
+          <span class="icon">🌙</span>
+          <span class="title">Overnight Parking Centro Histórico</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <p>
+            <strong>Overnight Parking Centro Histórico:</strong> Enjoy Santa Marta’s nightlife without a curfew. Unlike competing lots that close at 18:00, our 00:00-00:00 operating hours guarantee access to your vehicle at any time of night. Ideal for dinner, clubbing, or late-night strolls in the historic center.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .seo-section {
+    background-color: #0b1120;
+  }
+
+  .text-center { text-align: center; }
+  .mb-5 { margin-bottom: 3rem; }
+  .text-secondary { color: var(--text-secondary); }
+
+  h2 {
+    font-size: 2rem;
+    color: var(--text-primary);
+  }
+
+  .accordion-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .accordion-item {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+
+  .accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    text-align: left;
+  }
+
+  .accordion-header:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .accordion-header .icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+
+  .accordion-header .title {
+    flex: 1;
+  }
+
+  .accordion-header .toggle-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: transform 0.3s;
+  }
+
+  .accordion-header[aria-expanded="true"] .toggle-icon {
+    transform: rotate(45deg);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .accordion-content p {
+    padding: 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .accordion-content strong {
+    color: var(--text-primary);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const headers = document.querySelectorAll('.accordion-header');
+
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const expanded = header.getAttribute('aria-expanded') === 'true';
+        const content = header.nextElementSibling as HTMLElement;
+
+        // Close all others
+        document.querySelectorAll('.accordion-header').forEach(other => {
+          if (other !== header) {
+            other.setAttribute('aria-expanded', 'false');
+            (other.nextElementSibling as HTMLElement).style.maxHeight = '0px';
+          }
+        });
+
+        // Toggle current
+        if (expanded) {
+          header.setAttribute('aria-expanded', 'false');
+          content.style.maxHeight = '0px';
+        } else {
+          header.setAttribute('aria-expanded', 'true');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+  });
+</script>

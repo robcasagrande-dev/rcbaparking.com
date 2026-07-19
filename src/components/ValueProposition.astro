@@ -1,0 +1,106 @@
+---
+// ValueProposition.astro
+---
+
+<section id="about" class="section vp-section">
+  <div class="container">
+    <div class="vp-header text-center animate-fade-in">
+      <h2>Our Network</h2>
+      <p class="vp-intro">
+        Navigating the vibrant, historic streets of Santa Marta should be an exhilarating experience, entirely devoid of logistical stress. Whether you are embarking on a full-day sailing excursion from Marina Santa Marta, exploring the colonial architecture and narrow avenues of the Centro Histórico, or enjoying the city's renowned culinary and nightlife scene, the RCBA Parking Network provides the unparalleled peace of mind you deserve.
+      </p>
+      <p class="vp-intro mt-4">
+        With two strategically located, highly secure facilities operating continuously 24 hours a day, 7 days a week, your vehicle remains protected while you experience the best of the Caribbean coast. We are equipped to accommodate all vehicle types—from compact economy rentals navigating tight streets to premium SUVs—ensuring a seamless, secure start and end to your journey in Magdalena.
+      </p>
+    </div>
+
+    <div class="vp-grid">
+      <div class="vp-card glass-panel">
+        <div class="icon">🛡️</div>
+        <h3>24/7 Security & Monitoring</h3>
+        <p>Physical monitoring designed specifically to keep your vehicles safe from urban hazards.</p>
+      </div>
+      
+      <div class="vp-card glass-panel">
+        <div class="icon">🕒</div>
+        <h3>Open 24 Hours a Day</h3>
+        <p>00:00-00:00 operating hours guarantee access to your vehicle at any time of night.</p>
+      </div>
+
+      <div class="vp-card glass-panel">
+        <div class="icon">📍</div>
+        <h3>Central Locations</h3>
+        <p>Less than a 5-minute walk (200 meters) from Marina Santa Marta and the historic center.</p>
+      </div>
+
+      <div class="vp-card glass-panel">
+        <div class="icon">🚙</div>
+        <h3>Spacious Parking Bays</h3>
+        <p>Equipped to accommodate all vehicle types, from compact economy rentals to premium SUVs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .vp-section {
+    background-color: var(--bg-color);
+    position: relative;
+  }
+
+  .vp-header {
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+    text-align: center;
+  }
+
+  .vp-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+  }
+
+  .vp-intro {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .mt-4 {
+    margin-top: 1rem;
+  }
+
+  .vp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .vp-card {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .vp-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: rgba(250, 204, 21, 0.3);
+  }
+
+  .icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .vp-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .vp-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+</style>
