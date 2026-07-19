@@ -48,3 +48,4 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 ## Environment & Configuration Setup
 
 To ensure security, sensitive credentials (passwords, API keys, and configurations) are **not** stored in this GitHub repository. Instead, they are managed via a local `config.json` file in the `SharedConfig` folder which is ignored by git.
+ 
