@@ -15,31 +15,32 @@ const t = useTranslations(lang);
     <div class="grid grid-2 pricing-grid">
       <div class="card pricing-card glass-panel text-center">
         <div class="pricing-header">
-          <h3>{t('pricing.day.title')}</h3>
-          <div class="price">20,000 <span class="currency">COP</span></div>
-          <p class="validity">{t('pricing.day.valid')}</p>
+          <h3>{t('pricing.car.title')}</h3>
+          <p class="validity">{t('pricing.car.valid')}</p>
         </div>
         <ul class="pricing-features">
-          <li>✔️ {t('pricing.day.f1')}</li>
-          <li>✔️ {t('pricing.day.f2')}</li>
-          <li>✔️ {t('pricing.day.f3')}</li>
-          <li>✔️ {t('pricing.day.f4')}</li>
+          <li>✔️ {t('pricing.car.f1')}</li>
+          <li>✔️ {t('pricing.car.f2')}</li>
+          <li>✔️ {t('pricing.car.f3')}</li>
+          <li>✔️ {t('pricing.car.f4')}</li>
         </ul>
       </div>
 
       <div class="card pricing-card premium glass-panel text-center">
         <div class="pricing-header">
-          <h3>{t('pricing.night.title')}</h3>
-          <div class="price">4,000 <span class="currency">COP{t('pricing.night.period')}</span></div>
-          <p class="validity">{t('pricing.night.valid')}</p>
+          <h3>{t('pricing.moto.title')}</h3>
+          <p class="validity">{t('pricing.moto.valid')}</p>
         </div>
         <ul class="pricing-features">
-          <li>✔️ {t('pricing.night.f1')}</li>
-          <li>✔️ {t('pricing.night.f2')}</li>
-          <li>✔️ {t('pricing.night.f3')}</li>
-          <li>✔️ {t('pricing.night.f4')}</li>
+          <li>✔️ {t('pricing.moto.f1')}</li>
+          <li>✔️ {t('pricing.moto.f2')}</li>
+          <li>✔️ {t('pricing.moto.f3')}</li>
+          <li>✔️ {t('pricing.moto.f4')}</li>
         </ul>
       </div>
+    </div>
+    <div class="text-center mt-5">
+      <p class="text-primary font-semibold text-lg" style="color: var(--primary-color);">💵 {t('pricing.payment')}</p>
     </div>
   </div>
 </section>
