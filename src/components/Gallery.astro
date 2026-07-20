@@ -1,8 +1,8 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
-// There are 11 images named rcba-parking-santa-marta-1.jpeg to rcba-parking-santa-marta-11.jpeg
-const images = Array.from({ length: 11 }, (_, i) => `/images/gallery/rcba-parking-santa-marta-${i + 1}.jpeg`);
+// There are 8 images named photo-1.jpeg to photo-8.jpeg
+const images = Array.from({ length: 8 }, (_, i) => `/images/gallery/photo-${i + 1}.jpeg`);
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
