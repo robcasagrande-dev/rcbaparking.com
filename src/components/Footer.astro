@@ -33,8 +33,10 @@ const t = useTranslations(lang);
       <p><strong>{t('footer.loc1')}</strong> Cra. 2 #19-60</p>
       <p><strong>{t('footer.loc2')}</strong> Cra. 2 #19-36</p>
       <div class="social-links">
-        <a href="https://instagram.com/rcbaparking" target="_blank" aria-label="Instagram Location 1">IG 1</a>
-        <a href="https://instagram.com/rcbaparking2" target="_blank" aria-label="Instagram Location 2">IG 2</a>
+        <a href="https://www.facebook.com/rcbaparking" target="_blank" aria-label="Facebook Location 1">FB 1</a>
+        <a href="https://www.instagram.com/rcbaparking?igsh=NHRjcGJkc3piNDAz&utm_source=qr" target="_blank" aria-label="Instagram Location 1">IG 1</a>
+        <a href="https://www.facebook.com/profile.php?id=61557544546633" target="_blank" aria-label="Facebook Location 2">FB 2</a>
+        <a href="https://www.instagram.com/rcbaparking2?igsh=aTJqNzF3dTMxcDU3&utm_source=qr" target="_blank" aria-label="Instagram Location 2">IG 2</a>
       </div>
     </div>
     
@@ -111,6 +113,7 @@ const t = useTranslations(lang);
   .social-links {
     display: flex;
     gap: 1.5rem;
+    flex-wrap: wrap;
   }
 
   .social-links a, .legal-links a {
