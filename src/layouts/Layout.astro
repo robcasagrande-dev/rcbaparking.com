@@ -1,28 +1,54 @@
 ---
-import { getLangFromUrl } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import '../styles/global.css';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
+  keywords?: string;
+  schema?: any;
 }
 
-const { title, description = "Secure, 24/7 Parking in the Heart of Santa Marta. Two strategically located facilities offering continuous access and 24-hour monitoring." } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
-// JSON-LD Schema
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://rcbaparking.com';
+
+const title = Astro.props.title || t('meta.title');
+const description = Astro.props.description || t('meta.desc');
+const keywords = Astro.props.keywords || t('meta.keywords');
+
+// Build canonical URL cleanly
+const rawPathname = Astro.url.pathname;
+const cleanPathname = rawPathname.endsWith('/') ? rawPathname : `${rawPathname}/`;
+const canonicalURL = new URL(cleanPathname, siteUrl).toString();
+
+// Build alternate links for all 5 languages + x-default
+const alternates = [
+  { lang: 'es', href: `${siteUrl}/` },
+  { lang: 'en', href: `${siteUrl}/en/` },
+  { lang: 'it', href: `${siteUrl}/it/` },
+  { lang: 'fr', href: `${siteUrl}/fr/` },
+  { lang: 'de', href: `${siteUrl}/de/` },
+  { lang: 'x-default', href: `${siteUrl}/` }
+];
+
+// JSON-LD Schemas for Search Engine Optimization
 const schemaLocation1 = {
   "@context": "https://schema.org",
   "@type": "ParkingFacility",
-  "name": "RCBA Parking",
-  "image": "https://www.rcbaparking.com/images/ubicacion/Parking1.jpeg",
-  "@id": "https://www.rcbaparking.com",
-  "url": "https://www.rcbaparking.com",
+  "name": "RCBA Parking 1 (Centro Histórico & Marina)",
+  "image": "https://rcbaparking.com/images/ubicacion/Parking1.jpeg",
+  "@id": "https://rcbaparking.com/#location1",
+  "url": "https://rcbaparking.com",
   "telephone": "+5754220888",
+  "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Cra. 2 #19-60",
     "addressLocality": "Santa Marta",
     "addressRegion": "Magdalena",
+    "postalCode": "470004",
     "addressCountry": "CO"
   },
   "geo": {
@@ -32,17 +58,52 @@ const schemaLocation1 = {
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     "opens": "00:00",
     "closes": "23:59"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "128",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Tarifas de Parqueadero Santa Marta",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Parqueadero por Hora / Fracción (Carro)"
+        },
+        "price": "3500",
+        "priceCurrency": "COP"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Parqueadero 24 Horas (Carro)"
+        },
+        "price": "55000",
+        "priceCurrency": "COP"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Cupo Auto Mensual (Santa Marta)"
+        },
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "COP",
+          "unitText": "MONTH"
+        }
+      }
+    ]
   },
   "sameAs": [
     "https://www.facebook.com/rcbaparking",
@@ -53,16 +114,18 @@ const schemaLocation1 = {
 const schemaLocation2 = {
   "@context": "https://schema.org",
   "@type": "ParkingFacility",
-  "name": "RCBA Parking 2",
-  "image": "https://www.rcbaparking.com/images/ubicacion/Parking2.jpeg",
-  "@id": "https://www.rcbaparking.com#location2",
-  "url": "https://www.rcbaparking.com",
+  "name": "RCBA Parking 2 (Bahía & Centro Histórico)",
+  "image": "https://rcbaparking.com/images/ubicacion/Parking2.jpeg",
+  "@id": "https://rcbaparking.com/#location2",
+  "url": "https://rcbaparking.com",
   "telephone": "+5754220888",
+  "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Cra. 2 #19-36",
     "addressLocality": "Santa Marta",
     "addressRegion": "Magdalena",
+    "postalCode": "470004",
     "addressCountry": "CO"
   },
   "geo": {
@@ -72,32 +135,82 @@ const schemaLocation2 = {
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     "opens": "00:00",
     "closes": "23:59"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "115",
+    "bestRating": "5",
+    "worstRating": "1"
   },
   "sameAs": [
     "https://www.facebook.com/profile.php?id=61557544546633",
     "https://www.instagram.com/rcbaparking2?igsh=aTJqNzF3dTMxcDU3&utm_source=qr"
   ]
 };
-const lang = getLangFromUrl(Astro.url);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Dónde parquear seguro 24 horas en el Centro Histórico de Santa Marta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RCBA Parking ofrece dos sedes con vigilancia presencial y cámaras 24/7 en Cra. 2 #19-60 y Cra. 2 #19-36, a 200 metros de la Marina de Santa Marta y el Parque de los Novios."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo solicitar cupo auto o mensualidad de parqueadero en Santa Marta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RCBA Parking dispone de servicio de cupo auto mensual para carros y motos con lugar reservado 24/7 y tarifa preferencial. Puedes consultar disponibilidad directamente en nuestras sedes o por contacto directo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tarifas de parqueadero ofrecen para carros y motos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para carros: $3.500 COP hora o fracción, $35.000 COP la noche y $55.000 COP 24 horas. Para motos: $2.000 COP hora o fracción, $20.000 COP la noche y $30.000 COP 24 horas."
+      }
+    }
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://rcbaparking.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Parqueadero Santa Marta",
+      "item": canonicalURL
+    }
+  ]
+};
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!-- Favicon & Icons for Google Search & Browsers -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    
+    <!-- Favicon & Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
@@ -106,18 +219,47 @@ const lang = getLangFromUrl(Astro.url);
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     
+    <!-- Primary Title & Meta -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Multilingual Hreflang Tags -->
+    {alternates.map(alt => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.href} />
+    ))}
     
-    <!-- SEO Meta Tags -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.rcbaparking.com" />
-    <meta property="og:image" content="https://www.rcbaparking.com/images/gallery/photo-1.jpeg" />
+    <meta property="og:image" content="https://rcbaparking.com/images/gallery/photo-1.jpeg" />
+    <meta property="og:image:alt" content="RCBA Parking Santa Marta - Parqueadero Seguro 24/7" />
+    <meta property="og:site_name" content="RCBA Parking Santa Marta" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_CO' : lang === 'it' ? 'it_IT' : lang === 'fr' ? 'fr_FR' : lang === 'de' ? 'de_DE' : 'en_US'} />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://rcbaparking.com/images/gallery/photo-1.jpeg" />
+
+    <!-- Preconnect Fonts & Assets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaLocation1)} />
     <script type="application/ld+json" set:html={JSON.stringify(schemaLocation2)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    {Astro.props.schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(Astro.props.schema)} />
+    )}
   </head>
   <body>
     <slot />

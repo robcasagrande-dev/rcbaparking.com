@@ -10,6 +10,7 @@ import SeoSections from '../../components/SeoSections.astro';
 import ReviewFunnel from '../../components/ReviewFunnel.astro';
 import Footer from '../../components/Footer.astro';
 import { ui } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
 
 export function getStaticPaths() {
   const languages = Object.keys(ui).filter(lang => lang !== 'es');
@@ -17,9 +18,12 @@ export function getStaticPaths() {
     params: { lang },
   }));
 }
+
+const { lang } = Astro.params as { lang: keyof typeof ui };
+const t = useTranslations(lang);
 ---
 
-<Layout title="RCBA Parking Santa Marta | Secure 24/7 Lots">
+<Layout title={t('meta.title')} description={t('meta.desc')} keywords={t('meta.keywords')}>
   <Header />
   <main>
     <Hero />

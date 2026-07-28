@@ -9,9 +9,13 @@ import Pricing from '../components/Pricing.astro';
 import SeoSections from '../components/SeoSections.astro';
 import ReviewFunnel from '../components/ReviewFunnel.astro';
 import Footer from '../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Layout title="RCBA Parking | Secure, 24/7 Parking in Santa Marta">
+<Layout title={t('meta.title')} description={t('meta.desc')} keywords={t('meta.keywords')}>
   <Header />
   
   <main>

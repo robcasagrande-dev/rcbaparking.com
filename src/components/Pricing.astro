@@ -12,10 +12,10 @@ const t = useTranslations(lang);
       <p class="text-secondary">{t('pricing.desc')}</p>
     </div>
 
-    <div class="grid grid-2 pricing-grid">
+    <div class="pricing-grid">
       <div class="card pricing-card glass-panel text-center">
         <div class="pricing-header">
-          <h3>{t('pricing.car.title')}</h3>
+          <h3>🚗 {t('pricing.car.title')}</h3>
           <p class="validity">{t('pricing.car.valid')}</p>
         </div>
         <ul class="pricing-features">
@@ -26,9 +26,9 @@ const t = useTranslations(lang);
         </ul>
       </div>
 
-      <div class="card pricing-card premium glass-panel text-center">
+      <div class="card pricing-card glass-panel text-center">
         <div class="pricing-header">
-          <h3>{t('pricing.moto.title')}</h3>
+          <h3>🏍️ {t('pricing.moto.title')}</h3>
           <p class="validity">{t('pricing.moto.valid')}</p>
         </div>
         <ul class="pricing-features">
@@ -38,7 +38,33 @@ const t = useTranslations(lang);
           <li>✔️ {t('pricing.moto.f4')}</li>
         </ul>
       </div>
+
+      <div class="card pricing-card featured glass-panel text-center">
+        <div class="badge">POPULAR</div>
+        <div class="pricing-header">
+          <h3>⭐ {t('pricing.cupo.title')}</h3>
+          <p class="validity">{t('pricing.cupo.valid')}</p>
+        </div>
+        <ul class="pricing-features">
+          <li>✔️ {t('pricing.cupo.f1')}</li>
+          <li>✔️ {t('pricing.cupo.f2')}</li>
+          <li>✔️ {t('pricing.cupo.f3')}</li>
+          <li>✔️ {t('pricing.cupo.f4')}</li>
+        </ul>
+        <div class="mt-4">
+          <a 
+            href={`https://wa.me/573004220888?text=${encodeURIComponent(t('review.whatsapp.text'))}`} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn btn-primary"
+            style="width: 100%; display: inline-block; padding: 0.75rem 1rem; border-radius: 8px;"
+          >
+            💬 {t('pricing.cupo.cta')}
+          </a>
+        </div>
+      </div>
     </div>
+
     <div class="text-center mt-5">
       <p class="text-primary font-semibold text-lg" style="color: var(--primary-color);">💵 {t('pricing.payment')}</p>
     </div>
@@ -53,6 +79,8 @@ const t = useTranslations(lang);
 
   .text-center { text-align: center; }
   .mb-5 { margin-bottom: 3rem; }
+  .mt-4 { margin-top: 1.5rem; }
+  .mt-5 { margin-top: 3rem; }
   .text-secondary { color: var(--text-secondary); }
 
   h2 {
@@ -62,67 +90,55 @@ const t = useTranslations(lang);
 
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
   }
 
   .pricing-card {
-    padding: 2.5rem;
+    padding: 2.5rem 1.75rem;
     border-radius: var(--border-radius);
     text-align: center;
     transition: transform 0.3s ease;
     border-top: 4px solid var(--text-secondary);
+    position: relative;
   }
 
   .pricing-card.featured {
     border-top: 4px solid var(--primary-color);
-    transform: scale(1.05);
-    background: rgba(30, 41, 59, 0.9);
+    background: rgba(30, 41, 59, 0.95);
+    box-shadow: 0 8px 32px rgba(14, 165, 233, 0.2);
+  }
+
+  .pricing-card .badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--primary-color);
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 2px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   .pricing-card:hover {
-    transform: scale(1.05) translateY(-5px);
+    transform: translateY(-5px);
   }
 
   .pricing-header h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-  }
-
-  .price {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
+    font-size: 1.35rem;
     margin-bottom: 0.5rem;
-  }
-
-  .currency {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-right: 0.25rem;
-  }
-
-  .amount {
-    font-size: 3rem;
-    font-weight: 800;
     color: var(--text-primary);
-    line-height: 1;
-  }
-
-  .period {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    margin-left: 0.25rem;
   }
 
   .validity {
     color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -131,21 +147,15 @@ const t = useTranslations(lang);
     list-style: none;
     text-align: left;
     padding: 0;
+    margin-bottom: 1.5rem;
   }
 
   .pricing-features li {
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
     color: var(--text-primary);
+    font-size: 0.95rem;
     display: flex;
     align-items: flex-start;
-  }
-
-  @media (max-width: 768px) {
-    .pricing-card.featured {
-      transform: none;
-    }
-    .pricing-card:hover {
-      transform: translateY(-5px);
-    }
+    gap: 0.5rem;
   }
 </style>
