@@ -3,9 +3,9 @@ export const defaultLang = 'es';
 export const ui = {
   es: {
     // Meta SEO Tags
-    'meta.title': 'Parqueadero en Santa Marta 24 Horas | Cupo Auto & Estacionamiento Seguro | RCBA Parking',
-    'meta.desc': 'Parqueadero seguro 24/7 en el Centro Histórico de Santa Marta y cerca a la Marina. Cupo auto por mes, tarifas por hora y 24h para carros y motos. Vigilancia presencial 24/7.',
-    'meta.keywords': 'parqueadero santa marta, parking in santa marta, cupo auto santa marta, parqueadero centro santa marta, parqueadero 24 horas santa marta, parqueadero seguro santa marta, cupos parqueadero santa marta, parqueadero bahia santa marta, parqueadero marina santa marta, estacionamiento santa marta',
+    'meta.title': 'Parqueadero en Santa Marta 24 Horas | Estacionamiento Seguro | RCBA Parking',
+    'meta.desc': 'Parqueadero seguro 24/7 en el Centro Histórico de Santa Marta y cerca a la Marina. Tarifas por hora y 24h para carros y motos. Vigilancia presencial 24/7.',
+    'meta.keywords': 'parqueadero santa marta, parking in santa marta, parqueadero centro santa marta, parqueadero 24 horas santa marta, parqueadero seguro santa marta, parqueadero bahia santa marta, parqueadero marina santa marta, estacionamiento santa marta',
 
     // Header & Navigation
     'nav.about': 'Nosotros',
@@ -59,7 +59,7 @@ export const ui = {
 
     // Pricing
     'pricing.title': 'Estructura de Precios',
-    'pricing.desc': 'Tarifas transparentes y asequibles para un estacionamiento seguro por horas, días o mensualidad.',
+    'pricing.desc': 'Tarifas transparentes y asequibles para un estacionamiento seguro por horas o días.',
     'pricing.car.title': 'Tarifas para Autos',
     'pricing.car.valid': 'Cobro por fracción o estadía',
     'pricing.car.f1': 'Hora o fracción: 3.500 COP',
@@ -75,14 +75,6 @@ export const ui = {
     'pricing.moto.f3': '24 Horas: 30.000 COP',
     'pricing.moto.f4': 'Protección completa bajo techo',
 
-    'pricing.cupo.title': 'Cupo Auto & Mensualidades',
-    'pricing.cupo.valid': 'Tarifa preferencial por mes',
-    'pricing.cupo.f1': 'Lugar reservado y garantizado 24/7',
-    'pricing.cupo.f2': 'Vigilancia física presencial y cámaras 24/7',
-    'pricing.cupo.f3': 'Entradas y salidas ilimitadas sin restricciones',
-    'pricing.cupo.f4': 'Ideal para residentes, comerciantes y estancias largas',
-    'pricing.cupo.cta': 'Consultar Disponibilidad de Cupo',
-
     'pricing.payment': 'Aceptamos pago en efectivo, Nequi y Daviplata.',
 
     // SEO Sections
@@ -97,9 +89,6 @@ export const ui = {
     'seo.s3.title': 'Estacionamiento Nocturno Centro Histórico',
     'seo.s3.strong': 'Estacionamiento Nocturno Centro Histórico:',
     'seo.s3.desc': 'Disfruta la vida nocturna de Santa Marta sin toque de queda. A diferencia de otros parqueaderos que cierran a las 18:00, nuestro horario 00:00-00:00 te garantiza acceso a tu vehículo en cualquier momento de la noche. Ideal para cenar, ir a discotecas o pasear tarde por el centro histórico.',
-    'seo.s4.title': 'Cupo Auto y Mensualidad de Parqueadero en Santa Marta',
-    'seo.s4.strong': 'Servicio de Cupo Auto y Mensualidades:',
-    'seo.s4.desc': '¿Necesitas dejar tu carro o moto de forma permanente en el centro de Santa Marta? Ofrecemos cupos de parqueadero mensuales (cupo auto) con tarifas especiales preferenciales. Disfruta de un espacio reservado con vigilancia 24/7, acceso ilimitado a cualquier hora y la máxima seguridad en el Centro Histórico a pasos de la Bahía y la Marina.',
 
     // Review Funnel
     'review.title': '¿Cómo fue tu experiencia de estacionamiento?',
@@ -128,9 +117,9 @@ export const ui = {
   },
   en: {
     // Meta SEO Tags
-    'meta.title': 'Parking in Santa Marta 24/7 | Secure Parking & Monthly Spot | RCBA Parking',
-    'meta.desc': 'Secure 24/7 parking in Downtown Santa Marta & near Marina Santa Marta. Monthly parking spots (cupo auto), hourly & daily rates for cars & motorcycles. In-person security.',
-    'meta.keywords': 'parking in santa marta, santa marta parking, secure parking santa marta, 24/7 parking santa marta, monthly parking santa marta, car parking downtown santa marta, marina santa marta parking, cupo auto santa marta',
+    'meta.title': 'Parking in Santa Marta 24/7 | Secure Parking | RCBA Parking',
+    'meta.desc': 'Secure 24/7 parking in Downtown Santa Marta & near Marina Santa Marta. Hourly & daily rates for cars & motorcycles. In-person security.',
+    'meta.keywords': 'parking in santa marta, santa marta parking, secure parking santa marta, 24/7 parking santa marta, car parking downtown santa marta, marina santa marta parking',
 
     // Header & Navigation
     'nav.about': 'About',
@@ -184,7 +173,7 @@ export const ui = {
 
     // Pricing
     'pricing.title': 'Pricing Structure',
-    'pricing.desc': 'Transparent, affordable rates for secure parking by hour, day, or monthly subscription.',
+    'pricing.desc': 'Transparent, affordable rates for secure parking by hour or day.',
     'pricing.car.title': 'Car Rates',
     'pricing.car.valid': 'Charged by fraction or stay',
     'pricing.car.f1': 'Hour fraction: 3,500 COP',
@@ -200,14 +189,6 @@ export const ui = {
     'pricing.moto.f3': '24 Hours: 30,000 COP',
     'pricing.moto.f4': 'Full covered protection',
 
-    'pricing.cupo.title': 'Monthly Parking (Cupo Auto)',
-    'pricing.cupo.valid': 'Discounted monthly rate',
-    'pricing.cupo.f1': 'Guaranteed reserved spot 24/7',
-    'pricing.cupo.f2': 'In-person and 24/7 CCTV surveillance',
-    'pricing.cupo.f3': 'Unlimited entries and exits with zero curfew',
-    'pricing.cupo.f4': 'Ideal for residents, business owners & long stays',
-    'pricing.cupo.cta': 'Inquire Spot Availability',
-
     'pricing.payment': 'We accept payment in cash, Nequi, and Daviplata.',
 
     // SEO Sections
@@ -222,9 +203,6 @@ export const ui = {
     'seo.s3.title': 'Overnight Parking Centro Histórico',
     'seo.s3.strong': 'Overnight Parking Centro Histórico:',
     'seo.s3.desc': 'Enjoy Santa Marta’s nightlife without a curfew. Unlike competing lots that close at 18:00, our 00:00-00:00 operating hours guarantee access to your vehicle at any time of night. Ideal for dinner, clubbing, or late-night strolls in the historic center.',
-    'seo.s4.title': 'Monthly Parking & Reserved Spots in Santa Marta (Cupo Auto)',
-    'seo.s4.strong': 'Monthly Parking & Spot Subscriptions:',
-    'seo.s4.desc': 'Need long-term or monthly parking in downtown Santa Marta? We offer dedicated monthly parking spots (cupo auto) for cars and motorcycles at special discounted rates. Enjoy a reserved spot with 24/7 surveillance, unlimited access day and night, and total security just steps from Santa Marta Marina and the Historic Center.',
 
     // Review Funnel
     'review.title': 'How was your parking experience?',
@@ -253,9 +231,9 @@ export const ui = {
   },
   it: {
     // Meta SEO Tags
-    'meta.title': 'Parcheggio a Santa Marta 24/7 | Parcheggio Custodito & Posto Mensile | RCBA Parking',
-    'meta.desc': 'Parcheggio custodito 24/7 nel Centro Storico di Santa Marta e vicino alla Marina. Posto auto mensile (cupo auto), tariffe orarie e 24h per auto e moto.',
-    'meta.keywords': 'parcheggio santa marta, parking in santa marta, parcheggio custodito santa marta, parcheggio centro storico santa marta, posto auto mensile santa marta, cupo auto santa marta',
+    'meta.title': 'Parcheggio a Santa Marta 24/7 | Parcheggio Custodito | RCBA Parking',
+    'meta.desc': 'Parcheggio custodito 24/7 nel Centro Storico di Santa Marta e vicino alla Marina. Tariffe orarie e 24h per auto e moto.',
+    'meta.keywords': 'parcheggio santa marta, parking in santa marta, parcheggio custodito santa marta, parcheggio centro storico santa marta',
 
     'nav.about': 'Chi Siamo',
     'nav.locations': 'Posizioni',
@@ -318,14 +296,6 @@ export const ui = {
     'pricing.moto.f3': '24 Ore: 30.000 COP',
     'pricing.moto.f4': 'Protezione completa al coperto',
 
-    'pricing.cupo.title': 'Posto Auto Mensile (Cupo Auto)',
-    'pricing.cupo.valid': 'Tariffa mensile agevolata',
-    'pricing.cupo.f1': 'Posto riservato garantito 24/7',
-    'pricing.cupo.f2': 'Vigilanza fisica presenziale e telecamere 24/7',
-    'pricing.cupo.f3': 'Ingressi e uscite illimitati senza limiti di orario',
-    'pricing.cupo.f4': 'Ideale per residenti, commercianti e lunghi soggiorni',
-    'pricing.cupo.cta': 'Richiedi Disponibilità Posto',
-
     'pricing.payment': 'Accettiamo pagamenti in contanti, Nequi e Daviplata.',
 
     'seo.title': 'Esigenze comuni di parcheggio a Santa Marta',
@@ -339,9 +309,6 @@ export const ui = {
     'seo.s3.title': 'Parcheggio Notturno Centro Histórico',
     'seo.s3.strong': 'Parcheggio Notturno Centro Histórico:',
     'seo.s3.desc': 'Goditi la vita notturna di Santa Marta senza coprifuoco. A differenza dei parcheggi concorrenti che chiudono alle 18:00, i nostri orari operativi 00:00-00:00 ti garantiscono l\'accesso al tuo veicolo a qualsiasi ora della notte. Ideale per cena, discoteca o passeggiate notturne nel centro storico.',
-    'seo.s4.title': 'Posto Auto Mensile e Abbonamenti a Santa Marta (Cupo Auto)',
-    'seo.s4.strong': 'Abbonamento Posto Mensile:',
-    'seo.s4.desc': 'Hai bisogno di un parcheggio mensile nel centro di Santa Marta? Offriamo posti auto mensili (cupo auto) a tariffe agevolate per auto e moto. Goditi un posto riservato con sorveglianza 24/7 e accesso illimitato a due passi dalla Marina e dal Centro Storico.',
 
     'review.title': 'Com\'è stata la tua esperienza di parcheggio?',
     'review.desc': 'Puntiamo a un servizio a 5 stelle. Facci sapere come siamo andati!',
@@ -368,9 +335,9 @@ export const ui = {
   },
   fr: {
     // Meta SEO Tags
-    'meta.title': 'Parking à Santa Marta 24/7 | Parking Sécurisé & Place Mensuelle | RCBA Parking',
-    'meta.desc': 'Parking sécurisé 24/7 dans le Centre Historique de Santa Marta et près de la Marina. Place de parking mensuelle (cupo auto), tarifs horaires et 24h pour voitures et motos.',
-    'meta.keywords': 'parking santa marta, parking in santa marta, parking sécurisé santa marta, parking centre historique santa marta, place de parking mensuelle santa marta, cupo auto santa marta',
+    'meta.title': 'Parking à Santa Marta 24/7 | Parking Sécurisé | RCBA Parking',
+    'meta.desc': 'Parking sécurisé 24/7 dans le Centre Historique de Santa Marta et près de la Marina. Tarifs horaires et 24h pour voitures et motos.',
+    'meta.keywords': 'parking santa marta, parking in santa marta, parking sécurisé santa marta, parking centre historique santa marta',
 
     'nav.about': 'À Propos',
     'nav.locations': 'Emplacements',
@@ -416,6 +383,7 @@ export const ui = {
     'routing.btn.waze': 'Conduire avec Waze',
     'routing.btn.maps': 'Conduire avec Google Maps',
 
+    // Pricing
     'pricing.title': 'Structure des Prix',
     'pricing.desc': 'Des tarifs transparents et abordables pour un stationnement sécurisé.',
     'pricing.car.title': 'Tarifs Voiture',
@@ -433,14 +401,6 @@ export const ui = {
     'pricing.moto.f3': '24 Heures: 30 000 COP',
     'pricing.moto.f4': 'Protection complète sous toit',
 
-    'pricing.cupo.title': 'Place Mensuelle (Cupo Auto)',
-    'pricing.cupo.valid': 'Tarif préférentiel mensuel',
-    'pricing.cupo.f1': 'Emplacement réservé garanti 24/7',
-    'pricing.cupo.f2': 'Surveillance physique en personne et caméras 24/7',
-    'pricing.cupo.f3': 'Entrées et sorties illimitées 24h/24',
-    'pricing.cupo.f4': 'Idéal pour résidents, commerçants et longs séjours',
-    'pricing.cupo.cta': 'Vérifier la Disponibilité',
-
     'pricing.payment': 'Nous acceptons les paiements en espèces, Nequi et Daviplata.',
 
     // SEO Sections
@@ -455,9 +415,6 @@ export const ui = {
     'seo.s3.title': 'Stationnement de Nuit Centro Histórico',
     'seo.s3.strong': 'Stationnement de Nuit Centro Histórico :',
     'seo.s3.desc': 'Profitez de la vie nocturne de Santa Marta sans couvre-feu. Contrairement aux parkings concurrents qui ferment à 18h00, nos horaires 00:00-00:00 vous garantissent l\'accès à votre véhicule à toute heure de la nuit. Idéal pour les dîners, les sorties en club ou les balades nocturnes dans le centre historique.',
-    'seo.s4.title': 'Stationnement Mensuel et Places Réservées à Santa Marta (Cupo Auto)',
-    'seo.s4.strong': 'Abonnement Mensuel de Stationnement :',
-    'seo.s4.desc': 'Vous avez besoin d\'un parking mensuel dans le centre-ville de Santa Marta ? Nous proposons des abonnements mensuels (cupo auto) pour voitures et motos. Profitez d\'une place réservée avec surveillance 24/7 et accès illimité à proximité de la Marina et du Centre Historique.',
 
     // Review Funnel
     'review.title': 'Comment s\'est passée votre expérience de stationnement ?',
@@ -486,9 +443,9 @@ export const ui = {
   },
   de: {
     // Meta SEO Tags
-    'meta.title': 'Parken in Santa Marta 24/7 | Sicherer Parkplatz & Monatsplatz | RCBA Parking',
-    'meta.desc': 'Sicherer 24/7 Parkplatz im historischen Zentrum von Santa Marta & nahe der Marina. Monatlicher Dauerparkplatz (cupo auto), Stunden- & Tagespreise für Autos & Motorräder.',
-    'meta.keywords': 'parken in santa marta, parkplatz santa marta, sicherer parkplatz santa marta 24/7, monatsstellplatz santa marta, cupo auto santa marta, parking in santa marta',
+    'meta.title': 'Parken in Santa Marta 24/7 | Sicherer Parkplatz | RCBA Parking',
+    'meta.desc': 'Sicherer 24/7 Parkplatz im historischen Zentrum von Santa Marta & nahe der Marina. Stunden- & Tagespreise für Autos & Motorräder.',
+    'meta.keywords': 'parken in santa marta, parkplatz santa marta, sicherer parkplatz santa marta 24/7, parking in santa marta',
 
     'nav.about': 'Über Uns',
     'nav.locations': 'Standorte',
@@ -551,14 +508,6 @@ export const ui = {
     'pricing.moto.f3': '24 Stunden: 30.000 COP',
     'pricing.moto.f4': 'Vollständiger überdachter Schutz',
 
-    'pricing.cupo.title': 'Monatsstellplatz (Cupo Auto)',
-    'pricing.cupo.valid': 'Vergünstigter Monatstarif',
-    'pricing.cupo.f1': 'Garantierter reservierter Stellplatz 24/7',
-    'pricing.cupo.f2': 'Persönliche Überwachung vor Ort & 24/7 Kameras',
-    'pricing.cupo.f3': 'Unbegrenzte Ein- und Ausfahrten rund um die Uhr',
-    'pricing.cupo.f4': 'Ideal für Anwohner, Geschäftsinhaber & Langzeitaufenthalte',
-    'pricing.cupo.cta': 'Stellplatz Verfügbarkeit Anfragen',
-
     'pricing.payment': 'Wir akzeptieren Zahlungen in bar, Nequi und Daviplata.',
 
     // SEO Sections
@@ -573,9 +522,6 @@ export const ui = {
     'seo.s3.title': 'Parken über Nacht Centro Histórico',
     'seo.s3.strong': 'Parken über Nacht Centro Histórico:',
     'seo.s3.desc': 'Genießen Sie das Nachtleben von Santa Marta ohne Sperrstunde. Im Gegensatz zu konkurrierenden Parkplätzen, die um 18:00 Uhr schließen, garantieren unsere Betriebszeiten von 00:00 bis 00:00 Uhr den Zugang zu Ihrem Fahrzeug zu jeder Nachtzeit. Ideal für Abendessen, Clubbing oder nächtliche Spaziergänge im historischen Zentrum.',
-    'seo.s4.title': 'Monatsstellplatz & Dauerparken in Santa Marta (Cupo Auto)',
-    'seo.s4.strong': 'Monatliches Dauerparken:',
-    'seo.s4.desc': 'Suchen Sie einen dauerhaften Monatsstellplatz im Zentrum von Santa Marta? Wir bieten monatliche Stellplätze (cupo auto) für PKW und Motorräder zu Sonderkonditionen. Genießen Sie einen reservierten Stellplatz mit 24/7-Überwachung und unbegrenztem Zugang in bester Lage.',
 
     // Review Funnel
     'review.title': 'Wie war Ihr Parkerlebnis?',
