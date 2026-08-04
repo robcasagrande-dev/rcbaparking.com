@@ -2,9 +2,8 @@ export const defaultLang = 'es';
 
 export const ui = {
   es: {
-    // Meta SEO Tags
-    'meta.title': 'Parqueadero en Santa Marta 24 Horas | Estacionamiento Seguro | RCBA Parking',
-    'meta.desc': 'Parqueadero seguro 24/7 en el Centro Histórico de Santa Marta y cerca a la Marina. Tarifas por hora y 24h para carros y motos. Vigilancia presencial 24/7.',
+    'meta.title': 'Parqueadero 24 Horas en Santa Marta (Centro Histórico) | RCBA Parking',
+    'meta.desc': '📍 Parqueadero seguro cerca de ti en Santa Marta. Abierto 24 horas en el Centro Histórico (a 200m del Parque de los Novios y la Marina). Tarifas por hora y día.',
     'meta.keywords': 'parqueadero santa marta, parking in santa marta, parqueadero centro santa marta, parqueadero 24 horas santa marta, parqueadero seguro santa marta, parqueadero bahia santa marta, parqueadero marina santa marta, estacionamiento santa marta',
 
     // Header & Navigation
@@ -116,9 +115,8 @@ export const ui = {
     'footer.rights': 'Todos los derechos reservados.'
   },
   en: {
-    // Meta SEO Tags
-    'meta.title': 'Parking in Santa Marta 24/7 | Secure Parking | RCBA Parking',
-    'meta.desc': 'Secure 24/7 parking in Downtown Santa Marta & near Marina Santa Marta. Hourly & daily rates for cars & motorcycles. In-person security.',
+    'meta.title': '24/7 Parking in Santa Marta (Historic Center) | RCBA Parking',
+    'meta.desc': '📍 Secure 24/7 parking near you in Downtown Santa Marta. Just 200m from Parque de los Novios & the Marina. Hourly & daily rates for cars & motorcycles.',
     'meta.keywords': 'parking in santa marta, santa marta parking, secure parking santa marta, 24/7 parking santa marta, car parking downtown santa marta, marina santa marta parking',
 
     // Header & Navigation
