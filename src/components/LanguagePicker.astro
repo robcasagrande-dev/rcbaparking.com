@@ -7,17 +7,24 @@ const route = getRouteFromUrl(Astro.url);
 ---
 
 <div class="lang-picker">
-  {Object.entries(ui).map(([lang, _], index) => (
-    <>
-      <a 
-        href={lang === 'es' ? route : `/${lang}${route}`} 
-        class={lang === currentLang ? 'active' : ''}
-      >
-        {lang.toUpperCase()}
-      </a>
-      {index < Object.keys(ui).length - 1 && <span class="separator">|</span>}
-    </>
-  ))}
+  {Object.entries(ui).map(([langKey, _], index) => {
+    const rawRoute = route || '/';
+    const cleanRoute = rawRoute.endsWith('/') ? rawRoute : `${rawRoute}/`;
+    const targetHref = langKey === 'es' 
+      ? cleanRoute 
+      : `/${langKey}${cleanRoute.startsWith('/') ? cleanRoute : '/' + cleanRoute}`;
+    return (
+      <>
+        <a 
+          href={targetHref} 
+          class={langKey === currentLang ? 'active' : ''}
+        >
+          {langKey.toUpperCase()}
+        </a>
+        {index < Object.keys(ui).length - 1 && <span class="separator">|</span>}
+      </>
+    );
+  })}
 </div>
 
 <style>

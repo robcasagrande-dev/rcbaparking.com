@@ -9,7 +9,7 @@ const t = useTranslations(lang);
 <header class="header">
   <div class="container header-content">
     <div class="logo">
-      <a href={`/${lang === 'es' ? '' : lang}`}>
+      <a href={lang === 'es' ? '/' : `/${lang}/`}>
         <img src="/images/logo1.jpeg" alt="RCBA Parking Logo" class="header-logo" />
       </a>
     </div>
